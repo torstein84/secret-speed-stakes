@@ -54,6 +54,7 @@ const RaceCard = ({ race }: RaceCardProps) => {
   };
 
   return (
+    <>
     <Card className="bg-card/50 border-border/50 hover:border-primary/50 transition-all duration-300 hover:glow-primary group">
       <CardHeader className="pb-3">
         <div className="flex items-center justify-between">
@@ -138,6 +139,7 @@ const RaceCard = ({ race }: RaceCardProps) => {
       onClose={() => setIsParticipantSelectorOpen(false)}
       race={race}
     />
+  </>
   );
 };
 
