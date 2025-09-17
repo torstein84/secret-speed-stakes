@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Clock, Users, Zap, Lock } from "lucide-react";
+import { Clock, Users, Zap, Lock, Eye } from "lucide-react";
+import ParticipantSelector from "./ParticipantSelector";
+import { useAccount } from "wagmi";
 
 interface RaceCardProps {
   race: {
@@ -17,6 +20,13 @@ interface RaceCardProps {
 }
 
 const RaceCard = ({ race }: RaceCardProps) => {
+  const { address } = useAccount();
+  const [isParticipantSelectorOpen, setIsParticipantSelectorOpen] = useState(false);
+
+  const handlePlaceBet = () => {
+    setIsParticipantSelectorOpen(true);
+  };
+
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'live':
@@ -91,27 +101,43 @@ const RaceCard = ({ race }: RaceCardProps) => {
         <div className="flex space-x-2">
           {race.status === 'upcoming' && (
             <>
-              <Button variant="racing" size="sm" className="flex-1">
+              <Button 
+                variant="racing" 
+                size="sm" 
+                className="flex-1"
+                onClick={handlePlaceBet}
+                disabled={!address}
+              >
+                <Lock className="h-4 w-4 mr-2" />
                 Place Bet
               </Button>
               <Button variant="cyber" size="sm" className="px-3">
-                <Lock className="h-4 w-4" />
+                <Eye className="h-4 w-4" />
               </Button>
             </>
           )}
           {race.status === 'live' && (
             <Button variant="secondary" size="sm" className="w-full" disabled>
+              <Zap className="h-4 w-4 mr-2" />
               Race in Progress
             </Button>
           )}
           {race.status === 'finished' && (
             <Button variant="outline" size="sm" className="w-full">
+              <Lock className="h-4 w-4 mr-2" />
               View Results
             </Button>
           )}
         </div>
       </CardContent>
     </Card>
+
+    {/* Participant Selector Modal */}
+    <ParticipantSelector
+      isOpen={isParticipantSelectorOpen}
+      onClose={() => setIsParticipantSelectorOpen(false)}
+      race={race}
+    />
   );
 };
 
