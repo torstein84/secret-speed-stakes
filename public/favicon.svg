@@ -1,0 +1,61 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background with gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="trophyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="racingGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0099cc;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="32" height="32" rx="6" fill="url(#bgGradient)"/>
+  
+  <!-- Racing track background -->
+  <ellipse cx="16" cy="16" rx="12" ry="8" fill="none" stroke="#00d4ff" stroke-width="1" opacity="0.3"/>
+  <ellipse cx="16" cy="16" rx="8" ry="5" fill="none" stroke="#00d4ff" stroke-width="1" opacity="0.2"/>
+  
+  <!-- Trophy cup (main icon) -->
+  <g transform="translate(16, 12)">
+    <!-- Trophy base -->
+    <rect x="-3" y="4" width="6" height="2" rx="1" fill="url(#trophyGradient)"/>
+    <!-- Trophy cup -->
+    <path d="M-2 4L-2 0L2 0L2 4L1.5 4L1.5 0.5L-1.5 0.5L-1.5 4Z" fill="url(#trophyGradient)"/>
+    <!-- Trophy handles -->
+    <path d="M-2 1.5C-2.5 1.5 -3 1 -3 0.5C-3 0 -2.5 -0.5 -2 -0.5" stroke="url(#trophyGradient)" stroke-width="1" fill="none"/>
+    <path d="M2 1.5C2.5 1.5 3 1 3 0.5C3 0 2.5 -0.5 2 -0.5" stroke="url(#trophyGradient)" stroke-width="1" fill="none"/>
+    <!-- Trophy top -->
+    <circle cx="0" cy="-1" r="1.5" fill="url(#trophyGradient)"/>
+  </g>
+  
+  <!-- Racing elements -->
+  <g transform="translate(16, 20)">
+    <!-- Racing car -->
+    <rect x="-2" y="-1" width="4" height="2" rx="0.5" fill="url(#racingGradient)" opacity="0.8"/>
+    <circle cx="-1.5" cy="1" r="0.5" fill="#1a1a2e"/>
+    <circle cx="1.5" cy="1" r="0.5" fill="#1a1a2e"/>
+    <!-- Speed lines -->
+    <path d="M-3 -0.5L-4 -0.5" stroke="#00ff88" stroke-width="0.5" opacity="0.8"/>
+    <path d="M-3 0L-4 0" stroke="#00ff88" stroke-width="0.5" opacity="0.6"/>
+    <path d="M-3 0.5L-4 0.5" stroke="#00ff88" stroke-width="0.5" opacity="0.8"/>
+  </g>
+  
+  <!-- Speed indicators -->
+  <circle cx="6" cy="6" r="1" fill="#00d4ff" opacity="0.6"/>
+  <circle cx="26" cy="6" r="1" fill="#00d4ff" opacity="0.6"/>
+  <circle cx="6" cy="26" r="1" fill="#00d4ff" opacity="0.6"/>
+  <circle cx="26" cy="26" r="1" fill="#00d4ff" opacity="0.6"/>
+  
+  <!-- Connection lines for blockchain concept -->
+  <path d="M7 6L25 6" stroke="#00d4ff" stroke-width="0.5" opacity="0.3"/>
+  <path d="M6 7L6 25" stroke="#00d4ff" stroke-width="0.5" opacity="0.3"/>
+  <path d="M26 7L26 25" stroke="#00d4ff" stroke-width="0.5" opacity="0.3"/>
+  <path d="M7 26L25 26" stroke="#00d4ff" stroke-width="0.5" opacity="0.3"/>
+</svg>

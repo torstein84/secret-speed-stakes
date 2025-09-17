@@ -1,0 +1,209 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Exo+2:wght@300;400;500;600;700&display=swap');
+
+/* Racing Wagers Design System - Futuristic Racing Theme */
+
+@layer base {
+  :root {
+    /* Dark racing theme */
+    --background: 220 20% 8%;
+    --foreground: 180 100% 95%;
+
+    --card: 220 25% 12%;
+    --card-foreground: 180 100% 95%;
+
+    --popover: 220 25% 10%;
+    --popover-foreground: 180 100% 95%;
+
+    /* Elegant racing colors */
+    --primary: 250 100% 60%;
+    --primary-foreground: 220 20% 8%;
+    --primary-glow: 250 100% 75%;
+
+    --secondary: 180 100% 55%;
+    --secondary-foreground: 220 20% 8%;
+    --secondary-glow: 180 100% 70%;
+
+    --racing-accent: 280 100% 65%;
+    --racing-accent-glow: 280 100% 80%;
+
+    --muted: 220 15% 20%;
+    --muted-foreground: 180 20% 70%;
+
+    --accent: 200 100% 65%;
+    --accent-foreground: 220 20% 8%;
+    --accent-glow: 200 100% 80%;
+
+    --destructive: 0 100% 60%;
+    --destructive-foreground: 180 100% 95%;
+
+    --border: 220 20% 25%;
+    --input: 220 25% 15%;
+    --ring: 195 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Racing gradients */
+    --gradient-racing: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    --gradient-track: linear-gradient(90deg, hsl(var(--background)), hsl(var(--card)), hsl(var(--background)));
+    --gradient-speed: linear-gradient(45deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 50%, hsl(var(--secondary)) 100%);
+    --gradient-cyber: radial-gradient(ellipse at center, hsl(var(--primary) / 0.3), hsl(var(--background)));
+
+    /* Racing effects */
+    --glow-primary: 0 0 20px hsl(var(--primary) / 0.5);
+    --glow-secondary: 0 0 20px hsl(var(--secondary) / 0.5);
+    --glow-racing: 0 0 30px hsl(var(--racing-accent) / 0.6);
+    --shadow-racing: 0 8px 32px hsl(var(--primary) / 0.2);
+
+    /* Racing animations */
+    --transition-speed: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-race: all 0.15s ease-out;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-racing;
+    background: var(--gradient-cyber);
+  }
+
+  .font-racing {
+    font-family: 'Orbitron', monospace;
+  }
+
+  .font-speed {
+    font-family: 'Exo 2', sans-serif;
+  }
+}
+
+@layer components {
+  /* Racing track elements */
+  .racing-track {
+    background: var(--gradient-track);
+    position: relative;
+  }
+
+  .racing-track::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: repeating-linear-gradient(
+      90deg,
+      hsl(var(--primary)) 0,
+      hsl(var(--primary)) 20px,
+      transparent 20px,
+      transparent 40px
+    );
+    transform: translateY(-50%);
+    animation: speed-lines 2s linear infinite;
+  }
+
+  @keyframes speed-lines {
+    0% { transform: translateY(-50%) translateX(0); }
+    100% { transform: translateY(-50%) translateX(40px); }
+  }
+
+  /* Neon glow effects */
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+
+  .glow-secondary {
+    box-shadow: var(--glow-secondary);
+  }
+
+  .glow-racing {
+    box-shadow: var(--glow-racing);
+  }
+
+  /* Racing button animations */
+  .racing-pulse {
+    animation: racing-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes racing-pulse {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
+  }
+
+  /* Speed indicator */
+  .speed-indicator {
+    background: var(--gradient-speed);
+    animation: speed-flow 3s ease-in-out infinite;
+  }
+
+  @keyframes speed-flow {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+}
