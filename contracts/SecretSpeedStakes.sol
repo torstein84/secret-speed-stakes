@@ -1,12 +1,41 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-import { SepoliaConfig } from "@fhevm/solidity/config/ZamaConfig.sol";
-import { euint32, externalEuint32, euint8, ebool, FHE } from "@fhevm/solidity/lib/FHE.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
-contract SecretSpeedStakes is SepoliaConfig, Ownable, ReentrancyGuard {
+// Mock FHE types for development and testing
+struct euint32 {
+    uint256 value;
+}
+
+struct ebool {
+    bool value;
+}
+
+struct externalEuint32 {
+    uint256 value;
+}
+
+library FHE {
+    function asEuint32(uint256 value) internal pure returns (euint32) {
+        return euint32(value);
+    }
+    
+    function asEbool(bool value) internal pure returns (ebool) {
+        return ebool(value);
+    }
+    
+    function fromExternal(externalEuint32 externalValue, bytes calldata) internal pure returns (euint32) {
+        return euint32(externalValue.value);
+    }
+    
+    function add(euint32 a, euint32 b) internal pure returns (euint32) {
+        return euint32(a.value + b.value);
+    }
+}
+
+contract SecretSpeedStakes is Ownable, ReentrancyGuard {
     using FHE for *;
     
     struct Race {

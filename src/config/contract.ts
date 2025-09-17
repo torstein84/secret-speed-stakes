@@ -27,3 +27,4 @@ export const CONTRACT_ABI = [
   "function verifier() external view returns (address)",
   "function platformFeePercentage() external view returns (uint256)"
 ] as const;
+

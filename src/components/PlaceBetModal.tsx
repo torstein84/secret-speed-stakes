@@ -330,3 +330,4 @@ export default function PlaceBetModal({ isOpen, onClose, race, participant }: Pl
     </Dialog>
   );
 }
+

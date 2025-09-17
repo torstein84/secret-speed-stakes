@@ -7,3 +7,4 @@ export const config = getDefaultConfig({
   chains: [sepolia],
   ssr: false,
 });
+

@@ -245,3 +245,4 @@ export default function ParticipantSelector({ isOpen, onClose, race }: Participa
     </>
   );
 }
+
